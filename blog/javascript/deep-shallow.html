@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深浅拷贝 | yonghuasun</title>
+    <meta name="description" content="Let&#39;s run up">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#285577">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#285577">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.aa623114.css" as="style"><link rel="preload" href="/assets/js/app.e5d32257.js" as="script"><link rel="preload" href="/assets/js/2.83c33d79.js" as="script"><link rel="preload" href="/assets/js/4.79a6fe5d.js" as="script"><link rel="prefetch" href="/assets/js/10.260ff0cf.js"><link rel="prefetch" href="/assets/js/11.f4199bc3.js"><link rel="prefetch" href="/assets/js/12.e787c4a1.js"><link rel="prefetch" href="/assets/js/13.989780e4.js"><link rel="prefetch" href="/assets/js/14.722b1e0d.js"><link rel="prefetch" href="/assets/js/15.83b2fd36.js"><link rel="prefetch" href="/assets/js/16.e57172a9.js"><link rel="prefetch" href="/assets/js/17.4959884f.js"><link rel="prefetch" href="/assets/js/18.c466c3da.js"><link rel="prefetch" href="/assets/js/19.acd2d63a.js"><link rel="prefetch" href="/assets/js/20.881bedd6.js"><link rel="prefetch" href="/assets/js/21.16578953.js"><link rel="prefetch" href="/assets/js/22.83ffbb87.js"><link rel="prefetch" href="/assets/js/23.f30cb476.js"><link rel="prefetch" href="/assets/js/24.fea565c2.js"><link rel="prefetch" href="/assets/js/25.398825fe.js"><link rel="prefetch" href="/assets/js/3.7b1fee7f.js"><link rel="prefetch" href="/assets/js/5.09aa51de.js"><link rel="prefetch" href="/assets/js/6.58f3ff34.js"><link rel="prefetch" href="/assets/js/7.5a3e5fc1.js"><link rel="prefetch" href="/assets/js/8.f617256e.js"><link rel="prefetch" href="/assets/js/9.e159db2a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.aa623114.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">yonghuasun</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="javascript" class="dropdown-title"><span class="title">javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/variable.html" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="react" class="dropdown-title"><span class="title">react</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/react/lifecycle.html" class="nav-link">
+  生命周期
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/HOC.html" class="nav-link">
+  高阶函数
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/Context.html" class="nav-link">
+  Context
+</a></li></ul></div></div><div class="nav-item"><a href="/aboutus/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link">
+  标签
+</a></div> <a href="https://github.com/sunyonghua/blog/issues" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="javascript" class="dropdown-title"><span class="title">javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/variable.html" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="react" class="dropdown-title"><span class="title">react</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/react/lifecycle.html" class="nav-link">
+  生命周期
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/HOC.html" class="nav-link">
+  高阶函数
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/Context.html" class="nav-link">
+  Context
+</a></li></ul></div></div><div class="nav-item"><a href="/aboutus/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link">
+  标签
+</a></div> <a href="https://github.com/sunyonghua/blog/issues" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Javascript</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/javascript/typeof.html" class="sidebar-link">typeof</a></li><li><a href="/blog/javascript/variable.html" class="sidebar-link">简述变量声明</a></li><li><a href="/blog/javascript/react-connect.html" class="sidebar-link">在react中使用装饰器装饰connect方法</a></li><li><a href="/blog/javascript/string-immutable.html" class="sidebar-link">string的不可变</a></li><li><a href="/blog/javascript/deep-shallow.html" class="active sidebar-link">深浅拷贝</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/javascript/deep-shallow.html#深浅拷贝" class="sidebar-link">深浅拷贝</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/react/lifecycle.html" class="sidebar-link">react 生命周期</a></li><li><a href="/blog/react/HOC.html" class="sidebar-link">react 高阶组件</a></li><li><a href="/blog/react/context.html" class="sidebar-link">react context</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Es6</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/Es6/set.html" class="sidebar-link">Set</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>工具集</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/utils/bug.html" class="sidebar-link">bug---coding</a></li><li><a href="/blog/utils/Atom.html" class="sidebar-link">Atom使用记</a></li><li><a href="/blog/utils/vscode.html" class="sidebar-link">vscode使用记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="深浅拷贝"><a href="#深浅拷贝" class="header-anchor">#</a> 深浅拷贝</h2> <h6 id="什么是深浅拷贝？为什么要深拷贝？"><a href="#什么是深浅拷贝？为什么要深拷贝？" class="header-anchor">#</a> 什么是深浅拷贝？为什么要深拷贝？</h6> <p>说到深浅拷贝就涉及到javascript的数据类型，javascript数据类型分为基本数据类型和引用数据类型两种，</p> <p>基本数据类型（number,string,undefined,boolean，null,symbol）六种
+基本数据类型的值存在栈内存中，</p> <p>引用数据类型 （array,object,function）
+引用数据类型的值存在堆内存中，</p> <p>栈内存中存放基本类型的变量和引用类型指针的变量
+<img src="/assets/img/deep-shallow.b2e78789.png" alt="地址存放图">
+js中的浅拷贝和深拷贝就是对引用数据类型的复制操作，由于引用数据类型的值存在堆内存中，
+因此在复制操作中就出现两种情况，
+复制引用（栈内存中的引用指针）和复制一个新的引用数据类型（对象）</p> <p>基本类型</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num1 <span class="token operator">=</span> num<span class="token punctuation">;</span>
+num1 <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span>num1<span class="token punctuation">)</span> <span class="token comment">// 10 11 </span>
+</code></pre></div><p>上边的代码中
+num1是num的副本，它们在内存中占有不同位置但相等的内存控件 所以改变num1为11之后，num还是不会变化</p> <p>引用类型</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name <span class="token operator">:</span> <span class="token string">&quot;yonghua&quot;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> obj
+obj1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;sunyonghua&quot;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">,</span>obj1<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// sunyonghua sunyonghua</span>
+</code></pre></div><p>obj 这个变量存放的其实不是对象的属性和值，而是存放的指向这个对象的引用指针，
+所有obj1 = obj这个赋值操作只是把obj对象的指针复制了一份给obj1,因此两个变量指向的都是同一个对象
+所以在改变obj1对象的属性值的时候，obj也会被改变</p> <p>两者区别
+浅拷贝只是复制指向对象的指针地址，而不复制对象本身，新旧对象是同一个，共享同一块内存，一个被改变，另一个也会跟着变化
+深拷贝相当于创建了一个新的对象，不共享内存，修改新对象，就对象保持不变</p> <p>浅拷贝</p> <blockquote><p>共享内存,复制对象的引用指针</p></blockquote> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name <span class="token operator">:</span> <span class="token string">&quot;yonghua&quot;</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span><span class="token number">25</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> obj
+obj1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;sunyonghua&quot;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>name<span class="token punctuation">,</span>obj1<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// sunyonghua sunyonghua</span>
+</code></pre></div><p>深拷贝</p> <blockquote><p>复制并创建一个新的对象，不共享内存。</p></blockquote> <p>递归复制 方法内传入要拷贝的对象，遍历对象并赋值给新创建的对象，最后返回新对象，
+注意这里如果属性值为引用类型就需要递归赋值，不然复制的属性还是指向原对象的引用指针上</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'yonghua'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span> pet<span class="token operator">:</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'huahua'</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 创建新对象</span>
+  <span class="token keyword">let</span> newObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token comment">// 遍历要拷贝的对象并把每一个属性跟属性值赋值新对象</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 判断是否是自身的属性，防止获取到原型链上的属性</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 判断属性是否是引用数据类型，如果是引用数据类型，则递归处理</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> target<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        newObj<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>target<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        newObj<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> target<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newObj
+<span class="token punctuation">}</span>
+
+obj1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;sunyonghua&quot;</span>
+obj1<span class="token punctuation">.</span>pet<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'wangwang'</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> obj1<span class="token punctuation">)</span>
+</code></pre></div><p><img src="/assets/img/deep-console.d868eb64.png" alt="打印结果"></p> <p>使用JSON的parse和stringify方法</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'yonghua'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span> pet<span class="token operator">:</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'huahua'</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token keyword">let</span> newObj <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+newObj<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&quot;sunyonghua&quot;</span>
+newObj<span class="token punctuation">.</span>pet<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'wangwang'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> newObj<span class="token punctuation">)</span>
+</code></pre></div><p><img src="/assets/img/deep-console.d868eb64.png" alt="打印结果">
+打印结果同上，利用JSON先把对象转为字符串再转成对象,
+虽然简单粗暴，但是这个方法有很多弊端，谨慎使用，对function,undefined,RegExp,Error,Date等不友好</p> <p><a href="https://www.jianshu.com/p/b084dfaad501" target="_blank" rel="noopener noreferrer">查看链接<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h5 id="只能处理一层的深拷贝方法"><a href="#只能处理一层的深拷贝方法" class="header-anchor">#</a> 只能处理一层的深拷贝方法</h5> <p>数组：slice,concat，解构赋值</p> <p>对象：解构赋值，object.assgin()</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/javascript/string-immutable.html" class="prev">
+        string的不可变
+      </a></span> <span class="next"><a href="/blog/react/lifecycle.html">
+        react 生命周期
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e5d32257.js" defer></script><script src="/assets/js/2.83c33d79.js" defer></script><script src="/assets/js/4.79a6fe5d.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在react中使用装饰器装饰connect方法 | yonghuasun</title>
+    <meta name="description" content="Let&#39;s run up">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#285577">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#285577">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.aa623114.css" as="style"><link rel="preload" href="/assets/js/app.e5d32257.js" as="script"><link rel="preload" href="/assets/js/2.83c33d79.js" as="script"><link rel="preload" href="/assets/js/13.989780e4.js" as="script"><link rel="prefetch" href="/assets/js/10.260ff0cf.js"><link rel="prefetch" href="/assets/js/11.f4199bc3.js"><link rel="prefetch" href="/assets/js/12.e787c4a1.js"><link rel="prefetch" href="/assets/js/14.722b1e0d.js"><link rel="prefetch" href="/assets/js/15.83b2fd36.js"><link rel="prefetch" href="/assets/js/16.e57172a9.js"><link rel="prefetch" href="/assets/js/17.4959884f.js"><link rel="prefetch" href="/assets/js/18.c466c3da.js"><link rel="prefetch" href="/assets/js/19.acd2d63a.js"><link rel="prefetch" href="/assets/js/20.881bedd6.js"><link rel="prefetch" href="/assets/js/21.16578953.js"><link rel="prefetch" href="/assets/js/22.83ffbb87.js"><link rel="prefetch" href="/assets/js/23.f30cb476.js"><link rel="prefetch" href="/assets/js/24.fea565c2.js"><link rel="prefetch" href="/assets/js/25.398825fe.js"><link rel="prefetch" href="/assets/js/3.7b1fee7f.js"><link rel="prefetch" href="/assets/js/4.79a6fe5d.js"><link rel="prefetch" href="/assets/js/5.09aa51de.js"><link rel="prefetch" href="/assets/js/6.58f3ff34.js"><link rel="prefetch" href="/assets/js/7.5a3e5fc1.js"><link rel="prefetch" href="/assets/js/8.f617256e.js"><link rel="prefetch" href="/assets/js/9.e159db2a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.aa623114.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">yonghuasun</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="javascript" class="dropdown-title"><span class="title">javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/variable.html" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="react" class="dropdown-title"><span class="title">react</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/react/lifecycle.html" class="nav-link">
+  生命周期
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/HOC.html" class="nav-link">
+  高阶函数
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/Context.html" class="nav-link">
+  Context
+</a></li></ul></div></div><div class="nav-item"><a href="/aboutus/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link">
+  标签
+</a></div> <a href="https://github.com/sunyonghua/blog/issues" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="javascript" class="dropdown-title"><span class="title">javascript</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/javascript/variable.html" class="nav-link">
+  javascript
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="react" class="dropdown-title"><span class="title">react</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/react/lifecycle.html" class="nav-link">
+  生命周期
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/HOC.html" class="nav-link">
+  高阶函数
+</a></li><li class="dropdown-item"><!----> <a href="/blog/react/Context.html" class="nav-link">
+  Context
+</a></li></ul></div></div><div class="nav-item"><a href="/aboutus/" class="nav-link">
+  关于我
+</a></div><div class="nav-item"><a href="/tags/" class="nav-link">
+  标签
+</a></div> <a href="https://github.com/sunyonghua/blog/issues" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Javascript</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/javascript/typeof.html" class="sidebar-link">typeof</a></li><li><a href="/blog/javascript/variable.html" class="sidebar-link">简述变量声明</a></li><li><a href="/blog/javascript/react-connect.html" class="active sidebar-link">在react中使用装饰器装饰connect方法</a></li><li><a href="/blog/javascript/string-immutable.html" class="sidebar-link">string的不可变</a></li><li><a href="/blog/javascript/deep-shallow.html" class="sidebar-link">深浅拷贝</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/react/lifecycle.html" class="sidebar-link">react 生命周期</a></li><li><a href="/blog/react/HOC.html" class="sidebar-link">react 高阶组件</a></li><li><a href="/blog/react/context.html" class="sidebar-link">react context</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Es6</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/Es6/set.html" class="sidebar-link">Set</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>工具集</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/utils/bug.html" class="sidebar-link">bug---coding</a></li><li><a href="/blog/utils/Atom.html" class="sidebar-link">Atom使用记</a></li><li><a href="/blog/utils/vscode.html" class="sidebar-link">vscode使用记</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p>假设我们在react中有如下header组件：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> PureComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> connect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> actions <span class="token keyword">from</span> <span class="token string">'./actions'</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Header</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span><span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是个组件<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mapStateToProps</span> <span class="token operator">=</span> <span class="token parameter">state</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  todos<span class="token operator">:</span>state<span class="token punctuation">.</span>todos
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mapDispatchToProps</span> <span class="token operator">=</span> <span class="token parameter">dispatch</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function-variable function">setTodos</span><span class="token operator">:</span><span class="token parameter">value</span><span class="token operator">=&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span><span class="token function">setTodos</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>mapStateToProps<span class="token punctuation">,</span>mapDispatchToProps<span class="token punctuation">)</span><span class="token punctuation">(</span>Header<span class="token punctuation">)</span>
+</code></pre></div><p>我们在写react组件时结合redux要定义mapStateToProps和mapDispatchToProps两个返回对象的纯函数以便交给connect去包裹使用 具体connect使用查看<a href="https://cn.redux.js.org/docs/react-redux/api.html" target="_blank" rel="noopener noreferrer">connect<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>这里我们就可以用装饰器(Decorator)来改写下:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> PureComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> connect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-redux'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> actions <span class="token keyword">from</span> <span class="token string">'./actions'</span><span class="token punctuation">;</span>
+
+@<span class="token function">connect</span><span class="token punctuation">(</span>
+  <span class="token parameter">state</span><span class="token operator">=&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    todos<span class="token operator">:</span>state<span class="token punctuation">.</span>todos
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token parameter">dispatch</span><span class="token operator">=&gt;</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function-variable function">setTodos</span><span class="token operator">:</span><span class="token parameter">value</span><span class="token operator">=&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span>actions<span class="token punctuation">.</span><span class="token function">setTodos</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">Header</span> <span class="token keyword">extends</span> <span class="token class-name">PureComponent</span><span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>这是个组件<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Header
+</code></pre></div><p>如此，改造完成，代码看上去也比改造前的干净整洁了</p> <p>但是由于装饰器的兼容性问题我们需要使用babel来转换</p> <div class="language-shell extra-class"><pre class="language-shell"><code>// 安装babel插件
+<span class="token function">yarn</span> <span class="token function">add</span> @babel/plugin-proposal-decorators
+</code></pre></div><p>修改package.json下的babel</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token string">&quot;babel&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;react-app&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;plugins&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">&quot;@babel/plugin-proposal-decorators&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token string">&quot;legacy&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>最后一步
+根目录下新建jsconfig.json解决编辑器报错问题</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;compilerOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;experimentalDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>然后就可以愉快的coding了</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/javascript/variable.html" class="prev">
+        简述变量声明
+      </a></span> <span class="next"><a href="/blog/javascript/string-immutable.html">
+        string的不可变
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e5d32257.js" defer></script><script src="/assets/js/2.83c33d79.js" defer></script><script src="/assets/js/13.989780e4.js" defer></script>
+  </body>
+</html>
